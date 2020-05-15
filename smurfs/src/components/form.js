@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-
+import axios from 'axios';
 
 
 const Form = props => {
-    console.log("props", props);
+    console.log("Form props:", props);
     const [note, setNote] = useState({
       name: "",
-      email: "",
-      role: ""
+      age: "",
+      height: ""
     });
   
     const handleChanges = e => {
@@ -20,11 +20,31 @@ const Form = props => {
     };
 
   
-    const submitForm = e => {
-      e.preventDefault();
-      props.addNewMember(note);
-      setNote({ name: "", email: "", role: "" });
-    };
+    // const submitForm = e => {
+    //   e.preventDefault();
+    //   props.addNewMember(note);
+    //   setNote({ name: "", age: "", height: "" });
+    // };
+
+    const submitForm = (e) => {
+        e.preventDefault();
+
+        const newSmurf = {
+          name: '',
+          Age: '',
+          height: ''
+        };
+    
+        return axios
+          .post(`http://localhost:3333/smurfs`)
+          .then(response => {
+            console.log(response);
+            setNote([...note, newSmurf]);
+          })
+          .catch(error => {
+            console.log("Sorry no Smurfs", error);
+          });
+      };
   
     return (
       <form onSubmit={submitForm}>

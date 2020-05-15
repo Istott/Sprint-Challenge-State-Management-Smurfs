@@ -1,48 +1,45 @@
-// import React, { Component } from "react";
-// import "./App.css";
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <h1>SMURFS! 2.0 W/ Redux</h1>
-//         <div>Welcome to your state management version of Smurfs!</div>
-//         <div>Start inside of your `src/index.js` file!</div>
-//         <div>Have fun!</div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
 import React, {useState} from 'react';
+// import axios from 'axios';
 import './App.css';
 import Form from './form';
 import Member from "./member";
 
+import {SmurfContext} from '../contexts/SmurfContext';
+
 function SmurfForm() {
   const [memberValues, setMemberValues] = useState([]);
 
-  const addNewMember = member => {
-      const newMember = {
-          name: member.name,
-          email: member.email,
-          role: member.role
-      };
+  // const addNewMember = (member) => {
+  //   const newSmurf = {
+  //     name: member.name,
+  //     email: member.age,
+  //     role: member.height
+  //   };
 
-      setMemberValues([...memberValues, newMember]);
-  };
+  //   return axios
+  //     .post(`http://localhost:3333/smurfs`)
+  //     .then(response => {
+  //       console.log(response);
+  //       setMemberValues([...memberValues, newSmurf]);
+  //     })
+  //     .catch(error => {
+  //       console.log("Sorry no Smurfs", error);
+  //     });
+  // };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>New Member</h1>
 
-        <Form addNewMember={addNewMember}/>
-      
-        <div className="form">
-          <Member memberValues={memberValues} setMemberValues={setMemberValues} />
-        </div>
+        <SmurfContext.Provider value={{memberValues, setMemberValues}}>
+          <Form />
+        
+          <div className="form">
+            <Member />
+          </div>
+        </SmurfContext.Provider>
+
       </header>
     </div>
   );
