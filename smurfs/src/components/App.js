@@ -12,7 +12,7 @@ function SmurfForm() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>New Member</h1>
+        <h1>New Smurf</h1>
 
         <SmurfContext.Provider value={{memberValues, setMemberValues}}>
           <Form />
