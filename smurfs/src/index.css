@@ -4,4 +4,5 @@ body {
   font-family: sans-serif;
   background-image: url('../src/images/NicePng_hug-png_902579.png');
   background-size: cover;
+  background-color: black;
 }

@@ -56,9 +56,11 @@
 
 /* /////note.js//// */
 .note {
-  margin: 2%;
+  margin: 5%;
   padding: 1%;
-  background-color: #61dafb;
+  background-color: #254ea7;
+    opacity: none;
   border-radius: 10px;
-  color: #282c34;
+  color: #b8a0ac;
+  box-shadow: 10px 10px 10px white;
 }
