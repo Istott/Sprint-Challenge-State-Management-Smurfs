@@ -19,24 +19,17 @@ const Form = props => {
       });
     };
 
-  
-    // const submitForm = e => {
-    //   e.preventDefault();
-    //   props.addNewMember(note);
-    //   setNote({ name: "", age: "", height: "" });
-    // };
-
     const submitForm = (e) => {
         e.preventDefault();
 
         const newSmurf = {
-          name: '',
-          Age: '',
-          height: ''
+          name: note.name,
+          age: note.age,
+          height: `${note.height} cm`
         };
     
         return axios
-          .post(`http://localhost:3333/smurfs`)
+          .post(`http://localhost:3333/smurfs`, newSmurf)
           .then(response => {
             console.log(response);
             setNote([...note, newSmurf]);

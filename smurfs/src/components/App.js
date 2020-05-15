@@ -9,24 +9,6 @@ import {SmurfContext} from '../contexts/SmurfContext';
 function SmurfForm() {
   const [memberValues, setMemberValues] = useState([]);
 
-  // const addNewMember = (member) => {
-  //   const newSmurf = {
-  //     name: member.name,
-  //     email: member.age,
-  //     role: member.height
-  //   };
-
-  //   return axios
-  //     .post(`http://localhost:3333/smurfs`)
-  //     .then(response => {
-  //       console.log(response);
-  //       setMemberValues([...memberValues, newSmurf]);
-  //     })
-  //     .catch(error => {
-  //       console.log("Sorry no Smurfs", error);
-  //     });
-  // };
-
   return (
     <div className="App">
       <header className="App-header">
